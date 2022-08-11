@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, SafeAreaView, Image ,FlatList } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
 import tw from "tailwind-react-native-classnames";
 import NavOptions from "../components/NavOptions";
@@ -8,6 +15,7 @@ import { GOOGLE_MAPS_KEY } from "@env";
 import { useDispatch } from "react-redux";
 import { setDestination, setOrigin } from "../slices/navSlice";
 import NavFavourites from "../components/NavFavourites";
+import { Icon } from "react-native-elements";
 
 const data = [
   {
@@ -73,8 +81,7 @@ const HomeScreen = () => {
         />
 
         <NavOptions />
-        <NavFavourites/>
-        
+        <NavFavourites />
       </View>
     </SafeAreaView>
   );
