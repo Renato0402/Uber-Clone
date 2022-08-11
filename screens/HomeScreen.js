@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, Image } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, Image ,FlatList } from "react-native";
 import React from "react";
 import tw from "tailwind-react-native-classnames";
 import NavOptions from "../components/NavOptions";
@@ -7,6 +7,22 @@ import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplet
 import { GOOGLE_MAPS_KEY } from "@env";
 import { useDispatch } from "react-redux";
 import { setDestination, setOrigin } from "../slices/navSlice";
+import NavFavourites from "../components/NavFavourites";
+
+const data = [
+  {
+    id: "123",
+    icon: "home",
+    location: "Home",
+    destination: "Code Street, London, UK",
+  },
+  {
+    id: "456",
+    icon: "briefcase",
+    location: "Work",
+    destination: "London Eye, London, UK",
+  },
+];
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -57,6 +73,8 @@ const HomeScreen = () => {
         />
 
         <NavOptions />
+        <NavFavourites/>
+        
       </View>
     </SafeAreaView>
   );

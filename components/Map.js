@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import React, { useRef, useEffect } from "react";
+import React, {useRef,useEffect } from "react";
 import MapView, { Marker } from "react-native-maps";
 import tw from "tailwind-react-native-classnames";
 import { useSelector } from "react-redux";
@@ -17,10 +17,10 @@ const Map = () => {
     if (!origin || !destination) return;
 
     //Zoom e aparece o marcador de destino e da origem na tela
-    mapRef.current.fitToSuppliedMarkers(["origin", "destination"], {
-      edgePadding: { top: 80, right: 80, bottom: 80, left: 80 },
+    mapRef.current.fitToSuppliedMarkers(["origin","destination"], {
+      edgePadding: { top: 50, right: 50, bottom: 50, left: 50 },
     });
-  }, [origin, destination]);
+  }, [origin,destination]);
 
   return (
     <MapView
@@ -44,18 +44,6 @@ const Map = () => {
         />
       )}
 
-      {destination?.location && (
-        <Marker
-          coordinate={{
-            latitude: destination.location.lat,
-            longitude: destination.location.lng,
-          }}
-          title="Destination"
-          description={destination.description}
-          identifier="destination"
-        />
-      )}
-
       {origin?.location && (
         <Marker
           coordinate={{
@@ -65,6 +53,18 @@ const Map = () => {
           title="Origin"
           description={origin.description}
           identifier="origin"
+        />
+      )}
+
+      {destination?.location && (
+        <Marker
+          coordinate={{
+            latitude: destination.location.lat,
+            longitude: destination.location.lng,
+          }}
+          title="Destination"
+          description={destination.description}
+          identifier="destination"
         />
       )}
     </MapView>
